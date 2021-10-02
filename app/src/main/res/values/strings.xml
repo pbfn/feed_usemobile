@@ -4,4 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="likes">curtidas</string>
     <string name="comments">comentários</string>
+    <string name="name_post">Pedro Bruno</string>
+    <string name="date_post">Quinta-feira às 09:32</string>
+    <string name="qtd_aux">19999</string>
 </resources>

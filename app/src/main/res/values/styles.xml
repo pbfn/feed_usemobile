@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="text_view_name_post" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/lato_semibold</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">9dp</item>
+    </style>
+
+    <style name="text_view_date_post" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/lato_regular</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/date_color</item>
+        <item name="android:layout_marginStart">9dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_marginTop">7dp</item>
+    </style>
+
+    <style name="text_view_post" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/lato_regular</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_marginTop">13dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="text_view_qtd_post" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/lato_bold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/yellow</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_marginStart">8dp</item>
+    </style>
+
+    <style name="text_view_like_comment_post" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/lato_bold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_marginStart">2dp</item>
+    </style>
+
+</resources>

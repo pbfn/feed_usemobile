@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.feed_use.DataProvider
+import com.example.feed_use.dataprovider.DataProviderPost
 import com.example.feed_use.R
 import com.example.feed_use.adapters.AdapterPost
 import com.example.feed_use.databinding.FragmentFeedBinding
@@ -37,7 +37,7 @@ class FeedFragment : Fragment() {
 
     private fun setRecyclerView(){
         val layout = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        adapterPost = AdapterPost(DataProvider.postList)
+        adapterPost = AdapterPost(DataProviderPost.postList)
         binding.recyclerViewPosts.apply {
             layoutManager = layout
             adapter = adapterPost

@@ -5,5 +5,6 @@ data class Post(
     val imageProfile:String,
     val post:String,
     val datePost:String,
-    val nameProfilePost:String
+    val nameProfilePost:String,
+    val comments: MutableList<Comment>
 )
