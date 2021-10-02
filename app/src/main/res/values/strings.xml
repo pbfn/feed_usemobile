@@ -2,4 +2,6 @@
     <string name="app_name">Feed</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="likes">curtidas</string>
+    <string name="comments">comentários</string>
 </resources>
