@@ -5,6 +5,9 @@
       <map>
         <entry key="..\:/Usemobile/Feed_Use/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.22083333333333333" />
         <entry key="..\:/Usemobile/Feed_Use/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Usemobile/Feed_Use/app/src/main/res/layout/fragment_feed.xml" value="0.5596184419713831" />
+        <entry key="..\:/Usemobile/Feed_Use/app/src/main/res/layout/fragment_perfil.xml" value="0.36666666666666664" />
+        <entry key="..\:/Usemobile/Feed_Use/app/src/main/res/layout/item_adapter_posts.xml" value="0.33" />
       </map>
     </option>
   </component>

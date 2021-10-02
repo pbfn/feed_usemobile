@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.feed_use.databinding.ActivityMainBinding
+import com.example.feed_use.fragments.FeedFragment
+import com.example.feed_use.fragments.PerfilFragment
 
 
 class MainActivity : AppCompatActivity() {
