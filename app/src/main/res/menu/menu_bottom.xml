@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_feed"
+            android:checked="true"
+            android:icon="@drawable/ic_outline_feed_25"
+            android:title="Feed" />
+        <item
+            android:id="@+id/nav_post"
+            android:icon="@drawable/ic_outline_post_25"
+            android:title="Postar" />
+        <item
+            android:id="@+id/nav_perfil"
+            android:icon="@drawable/ic_outline_perfil_25"
+            android:title="Perfil" />
+    </group>
+</menu>
