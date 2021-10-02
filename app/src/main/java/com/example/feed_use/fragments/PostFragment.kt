@@ -6,10 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.feed_use.R
+import com.example.feed_use.databinding.FragmentPostBinding
 
 
-class PerfilFragment : Fragment() {
+class PostFragment : Fragment() {
 
+    private lateinit var binding: FragmentPostBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,9 +20,13 @@ class PerfilFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_perfil, container, false)
+    ): View {
+        binding = FragmentPostBinding.inflate(inflater,container,false)
+        return binding.root
+    }
+
+    private fun setView(){
+
     }
 
 }

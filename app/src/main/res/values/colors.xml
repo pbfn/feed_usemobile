@@ -10,4 +10,6 @@
 
     <color name="yellow">#F6CB46</color>
     <color name="date_color">#9D9D9D</color>
+    <color name="comment">#262626</color>
+    <color name="date_comment">#95989A</color>
 </resources>

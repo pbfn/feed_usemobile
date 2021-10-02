@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:paddingStart="24dp"
+    android:paddingTop="10dp"
+    android:paddingEnd="26dp"
+    android:paddingBottom="15dp"
+    android:layout_height="wrap_content">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/image_view_profile"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:src="@drawable/ic_outline_perfil_25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        style="@style/text_view_like_comment_name"
+        android:id="@+id/text_view_name_comment"
+        android:text="@string/name_post"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/image_view_profile"
+        app:layout_constraintTop_toTopOf="@+id/image_view_profile" />
+
+    <TextView
+        style="@style/text_view_like_comment"
+        android:id="@+id/text_view_comment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Muito bom"
+        app:layout_constraintEnd_toEndOf="@+id/text_view_name_comment"
+        app:layout_constraintStart_toStartOf="@+id/text_view_name_comment"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_name_comment" />
+
+    <TextView
+        style="@style/text_view_like_date_comment"
+        android:id="@+id/text_view_date_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ontem às 13:21"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_comment" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

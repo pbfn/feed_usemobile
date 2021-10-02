@@ -8,7 +8,7 @@ import com.example.feed_use.databinding.ItemAdapterPostBinding
 import com.squareup.picasso.Picasso
 
 
-class AdapterPost(private val posts: MutableList<Post>) :
+class AdapterPost(private val posts: MutableList<Post>, val function: (post: Post) -> Unit) :
     RecyclerView.Adapter<AdapterPost.ViewHolder>() {
 
     class ViewHolder(view: ItemAdapterPostBinding) : RecyclerView.ViewHolder(view.root) {
@@ -30,6 +30,11 @@ class AdapterPost(private val posts: MutableList<Post>) :
             textViewNameProfile.text = posts[position].nameProfilePost
             texViewDatePost.text = posts[position].datePost
             textViewPost.text = posts[position].post
+            itemView.setOnClickListener{
+                posts[position].let { post ->
+                    function(post)
+                }
+            }
         }
     }
 
