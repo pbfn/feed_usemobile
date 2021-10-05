@@ -11,6 +11,20 @@ object DataProviderComment {
             dateCommet = "Ontem às 18:50",
             imageUser = "",
             nameUser = "João",
+        ),
+        Comment(
+            idUser = "123456798",
+            comment = "Bem bacana",
+            dateCommet = "Ontem às 18:50",
+            imageUser = "",
+            nameUser = "Pedro",
+        ),
+        Comment(
+            idUser = "123456798",
+            comment = "Interessante",
+            dateCommet = "Ontem às 18:50",
+            imageUser = "",
+            nameUser = "Ana",
         )
     )
 }

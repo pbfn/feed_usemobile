@@ -7,4 +7,5 @@
     <string name="name_post">Pedro Bruno</string>
     <string name="date_post">Quinta-feira às 09:32</string>
     <string name="qtd_aux">19999</string>
+    <string name="hint_escreva_comentario">Escreva um comentário</string>
 </resources>

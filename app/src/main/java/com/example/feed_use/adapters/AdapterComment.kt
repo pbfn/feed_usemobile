@@ -24,7 +24,7 @@ class AdapterComment(private val comments: MutableList<Comment>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        Picasso.get().load(comments[position].imageUser).into(holder.imageViewComment)
+       // Picasso.get().load(comments[position].imageUser).into(holder.imageViewComment)
         holder.apply {
             textViewComment.text = comments[position].comment
             textViewDateComment.text = comments[position].dateCommet
