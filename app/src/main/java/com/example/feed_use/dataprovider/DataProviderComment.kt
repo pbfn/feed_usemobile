@@ -1,6 +1,6 @@
 package com.example.feed_use.dataprovider
 
-import com.example.feed_use.Comment
+import com.example.feed_use.data.Comment
 
 object DataProviderComment {
 

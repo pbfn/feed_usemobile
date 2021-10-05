@@ -3,7 +3,7 @@ package com.example.feed_use.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.feed_use.Comment
+import com.example.feed_use.data.Comment
 import com.example.feed_use.databinding.ItemAdapterCommentBinding
 import com.squareup.picasso.Picasso
 

@@ -10,7 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Feed_Use">
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.CommentActivity"
+            android:exported="true" />
+        <activity
+            android:name=".PostActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

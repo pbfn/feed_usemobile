@@ -6,27 +6,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.feed_use.R
-import com.example.feed_use.databinding.FragmentPostBinding
 
 
-class PostFragment : Fragment() {
-
-    private lateinit var binding: FragmentPostBinding
+class NewPostFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-    }
 
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentPostBinding.inflate(inflater,container,false)
-        return binding.root
-    }
+    ): View? {
 
-    private fun setView(){
-
+        return inflater.inflate(R.layout.fragment_new_post, container, false)
     }
 
 }

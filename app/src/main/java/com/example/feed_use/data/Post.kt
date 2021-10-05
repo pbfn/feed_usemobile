@@ -1,4 +1,6 @@
-package com.example.feed_use
+package com.example.feed_use.data
+
+import java.io.Serializable
 
 data class Post(
     val idPost:String,
@@ -7,4 +9,6 @@ data class Post(
     val datePost:String,
     val nameProfilePost:String,
     val comments: MutableList<Comment>
-)
+):Serializable
+
+

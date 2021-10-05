@@ -1,7 +1,6 @@
 package com.example.feed_use.dataprovider
 
-import com.example.feed_use.Comment
-import com.example.feed_use.Post
+import com.example.feed_use.data.Post
 
 object DataProviderPost {
     val postList = arrayListOf(

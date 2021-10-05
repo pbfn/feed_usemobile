@@ -1,14 +1,17 @@
 package com.example.feed_use.adapters
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.feed_use.Post
+import com.example.feed_use.activity.CommentActivity
+import com.example.feed_use.data.Post
 import com.example.feed_use.databinding.ItemAdapterPostBinding
 import com.squareup.picasso.Picasso
 
 
-class AdapterPost(private val posts: MutableList<Post>, val function: (post: Post) -> Unit) :
+class AdapterPost(private val posts: MutableList<Post>, var context: Context) :
     RecyclerView.Adapter<AdapterPost.ViewHolder>() {
 
     class ViewHolder(view: ItemAdapterPostBinding) : RecyclerView.ViewHolder(view.root) {
@@ -16,6 +19,7 @@ class AdapterPost(private val posts: MutableList<Post>, val function: (post: Pos
         val textViewNameProfile = view.textViewNameProfile
         val texViewDatePost = view.textViewDatePost
         val textViewPost = view.textViewPost
+        val imageViewComment = view.imageViewComment
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -30,10 +34,10 @@ class AdapterPost(private val posts: MutableList<Post>, val function: (post: Pos
             textViewNameProfile.text = posts[position].nameProfilePost
             texViewDatePost.text = posts[position].datePost
             textViewPost.text = posts[position].post
-            itemView.setOnClickListener{
-                posts[position].let { post ->
-                    function(post)
-                }
+            holder.itemView.setOnClickListener {
+                val intent = Intent(context, CommentActivity::class.java)
+                intent.putExtra("post",posts[position])
+                context.startActivity(intent)
             }
         }
     }
