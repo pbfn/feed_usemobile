@@ -6,4 +6,52 @@
     android:layout_height="match_parent"
     tools:context=".activity.NewPostActivity">
 
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/image_view_profile"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_outline_perfil_25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="24dp"
+        android:id="@+id/text_view_name_user"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/name_post"
+        app:layout_constraintBottom_toBottomOf="@+id/image_view_profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/image_view_profile"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:hint="Adicione o texto da sua postagem"
+        android:id="@+id/edit_text_post"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_post"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintTop_toBottomOf="@+id/image_view_profile" />
+
+    <Button
+        android:id="@+id/button_post"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Publicar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
