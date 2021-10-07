@@ -10,11 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Feed_Use">
         <activity
-            android:name=".activity.CommentActivity"
-            android:exported="true" />
+            android:name=".activity.NewPostActivity"
+            android:exported="true"
+            android:parentActivityName=".activity.MainActivity"
+            android:theme="@style/Theme.Feed_Use.ActionBar" />
         <activity
-            android:name=".PostActivity"
-            android:exported="true" />
+            android:name=".activity.CommentActivity"
+            android:exported="true"
+            android:parentActivityName=".activity.MainActivity"
+            android:theme="@style/Theme.Feed_Use.ActionBar" />
         <activity
             android:name=".activity.MainActivity"
             android:exported="true">

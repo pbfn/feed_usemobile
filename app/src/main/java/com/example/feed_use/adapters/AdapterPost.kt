@@ -20,6 +20,7 @@ class AdapterPost(private val posts: MutableList<Post>, var context: Context) :
         val texViewDatePost = view.textViewDatePost
         val textViewPost = view.textViewPost
         val imageViewComment = view.imageViewComment
+        val imageViewLike = view.imageViewLike
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -34,11 +35,21 @@ class AdapterPost(private val posts: MutableList<Post>, var context: Context) :
             textViewNameProfile.text = posts[position].nameProfilePost
             texViewDatePost.text = posts[position].datePost
             textViewPost.text = posts[position].post
-            holder.itemView.setOnClickListener {
+            holder.imageViewComment.setOnClickListener {
                 val intent = Intent(context, CommentActivity::class.java)
-                intent.putExtra("post",posts[position])
+                intent.putExtra("post", posts[position])
                 context.startActivity(intent)
             }
+            holder.itemView.setOnClickListener {
+                val intent = Intent(context, CommentActivity::class.java)
+                intent.putExtra("post", posts[position])
+                context.startActivity(intent)
+            }
+
+            holder.imageViewLike.setOnClickListener{
+
+            }
+
         }
     }
 

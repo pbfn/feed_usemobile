@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.feed_use.data.Post
@@ -13,12 +14,14 @@ import com.example.feed_use.R
 import com.example.feed_use.dataprovider.DataProviderPost
 import com.example.feed_use.adapters.AdapterPost
 import com.example.feed_use.databinding.FragmentFeedBinding
+import com.example.feed_use.viewModel.FeedFragmentViewModel
 
 
 class FeedFragment : Fragment() {
 
     private lateinit var adapterPost: AdapterPost
     private lateinit var binding: FragmentFeedBinding
+    private lateinit var feedFragmentViewModel: FeedFragmentViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,12 +38,16 @@ class FeedFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setRecyclerView()
+        setupViewModel()
+        observeData()
+        //setRecyclerView()
     }
 
-    private fun setRecyclerView() {
+    private fun setRecyclerView(posts: MutableList<Post>) {
+    //private fun setRecyclerView() {
         val layout = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-        adapterPost = AdapterPost(DataProviderPost.postList, requireContext())
+        //adapterPost = AdapterPost(DataProviderPost.postList, requireContext())
+        adapterPost = AdapterPost(posts, requireContext())
         binding.recyclerViewPosts.apply {
             layoutManager = layout
             adapter = adapterPost
@@ -48,6 +55,17 @@ class FeedFragment : Fragment() {
             itemDecoration.setDrawable(getDrawable(context, R.drawable.divider_post)!!)
             addItemDecoration(itemDecoration)
         }
+    }
+
+    private fun setupViewModel() {
+        feedFragmentViewModel = ViewModelProvider(this).get(FeedFragmentViewModel::class.java)
+        feedFragmentViewModel.getPosts()
+    }
+
+    private fun observeData() {
+        feedFragmentViewModel.posts.observe(viewLifecycleOwner, { posts ->
+            setRecyclerView(posts)
+        })
     }
 
 //    private fun clickItem(post: Post, view: View) {

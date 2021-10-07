@@ -42,8 +42,8 @@
         app:layout_constraintTop_toBottomOf="@+id/image_view_profile" />
 
 
-    <ImageView
-
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:button="@drawable/like_selector"
         android:id="@+id/image_view_like"
         android:layout_width="20dp"
         android:layout_height="20dp"
@@ -96,6 +96,5 @@
         app:layout_constraintBottom_toBottomOf="@+id/text_view_qtd_comments"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/text_view_qtd_comments" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
