@@ -8,9 +8,12 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.feed_use.R
+import com.example.feed_use.data.Post
 import com.example.feed_use.databinding.ActivityMainBinding
+import com.example.feed_use.dataprovider.DataProviderComment
 import com.example.feed_use.fragments.FeedFragment
 import com.example.feed_use.fragments.PerfilFragment
+import com.example.feed_use.repository.RepositoryPostImp
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -20,13 +23,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     private fun initDB() {
-
-        val db = Firebase.firestore
-//        db.collection("post").add(DataProviderPost.postList[0]).addOnSuccessListener {
-//            Toast.makeText(this,"Post adicionado", Toast.LENGTH_LONG)
-//        }.addOnFailureListener{
-//            Toast.makeText(this,"Erro ao adicionar nota", Toast.LENGTH_LONG)
-//        }
 
     }
 

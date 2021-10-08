@@ -81,4 +81,6 @@ dependencies {
 
     //CIRCLE IMAGE VIEW
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    implementation 'androidx.core:core-ktx:1.6.0'
 }

@@ -6,7 +6,7 @@ import com.example.feed_use.data.Post
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-class RepositoryPostImp:RepositoryPost {
+class RepositoryPostImp : RepositoryPost {
 
     private val db = Firebase.firestore
     private val pathPost = "posts"
@@ -19,7 +19,7 @@ class RepositoryPostImp:RepositoryPost {
             for (postFire in postsFromFirebase) {
                 postFire.data
                 val commentList = ArrayList<Comment>()
-                if(postFire.data["comments"] != null){
+                if (postFire.data["comments"] != null) {
                     val commentsFirebase = postFire.data["comments"] as MutableList<*>
                     for (comment in commentsFirebase) {
                         val commentLocal = Comment(
@@ -34,10 +34,13 @@ class RepositoryPostImp:RepositoryPost {
                 }
 
                 val post = Post(
+                    postFire.data["idPost"].toString(),
                     postFire.data["imageProfile"].toString(),
                     postFire.data["post"].toString(),
                     postFire.data["datePost"].toString(),
                     postFire.data["nameProfilePost"].toString(),
+                    postFire.data["numberLikes"].toString().toInt(),
+                    postFire.data["numberComments"].toString().toInt(),
                     commentList,
                 )
                 postList.add(post)
@@ -47,10 +50,24 @@ class RepositoryPostImp:RepositoryPost {
     }
 
     override fun insertPost(post: Post) {
-        db.collection(pathPost).add(post).addOnSuccessListener {
-            Log.d("RepositoryIMP","Post adicionado com sucesso")
+        db.collection(pathPost).document(post.idPost).set(post).addOnSuccessListener {
+            Log.d("RepositoryIMP", "Post adicionado com sucesso")
+        }.addOnFailureListener {
+            Log.d("RepositoryIMP", "Post não foi adicionado")
+        }
+    }
+
+
+    override fun editPost(post: Post) {
+        db.collection("posts").document(post.idPost).update(
+            "numberComments", post.numberComments,
+            "comments", post.comments,
+            "numberLikes", post.numberLikes
+        ).addOnSuccessListener {
+            Log.d("RepositoryIMP", "Post editado com sucesso")
         }.addOnFailureListener{
-            Log.d("RepositoryIMP","Post não foi adicionado")
+            it.toString()
+            Log.d("RepositoryIMP", "Post não foi editao")
         }
     }
 

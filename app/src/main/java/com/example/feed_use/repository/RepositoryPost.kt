@@ -7,4 +7,6 @@ interface RepositoryPost {
     fun getAllPosts():MutableList<Post>
 
     fun insertPost(post: Post)
+
+    fun editPost(post: Post)
 }

@@ -19,6 +19,8 @@ class AdapterPost(private val posts: MutableList<Post>, var context: Context) :
         val textViewNameProfile = view.textViewNameProfile
         val texViewDatePost = view.textViewDatePost
         val textViewPost = view.textViewPost
+        val textViewQtdLikes = view.textViewQtdLikes
+        val textViewQtdComments = view.textViewQtdComments
         val imageViewComment = view.imageViewComment
         val imageViewLike = view.imageViewLike
     }
@@ -35,21 +37,22 @@ class AdapterPost(private val posts: MutableList<Post>, var context: Context) :
             textViewNameProfile.text = posts[position].nameProfilePost
             texViewDatePost.text = posts[position].datePost
             textViewPost.text = posts[position].post
-            holder.imageViewComment.setOnClickListener {
+            imageViewComment.setOnClickListener {
                 val intent = Intent(context, CommentActivity::class.java)
                 intent.putExtra("post", posts[position])
                 context.startActivity(intent)
             }
-            holder.itemView.setOnClickListener {
+           itemView.setOnClickListener {
                 val intent = Intent(context, CommentActivity::class.java)
                 intent.putExtra("post", posts[position])
                 context.startActivity(intent)
             }
 
-            holder.imageViewLike.setOnClickListener{
+            imageViewLike.setOnClickListener{
 
             }
-
+            textViewQtdComments.text = posts[position].numberLikes.toString()
+            textViewQtdLikes.text = posts[position].numberComments.toString()
         }
     }
 
