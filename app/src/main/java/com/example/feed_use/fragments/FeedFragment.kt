@@ -68,20 +68,4 @@ class FeedFragment : Fragment() {
         })
     }
 
-//    private fun clickItem(post: Post, view: View) {
-//
-//
-////        //Navigation.findNavController(requireActivity(), R.id.frame_contaier)
-////
-////        val direction = FeedFragmentDirections.actionFeedFragmentToPostFragment()
-////        (requireActivity() as MainActivity).navController.navigate(direction)
-////
-////
-////        findNavController().navigate(direction)
-//
-//        //        val navHostFragment =
-////            parentFragmentManager.findFragmentById(R.id.nav_host_fragment_container) as NavHostFragment
-////        val navController = navHostFragment.navController
-//        //navController.navigate(direction)
-//    }
 }

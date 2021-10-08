@@ -27,7 +27,6 @@ class CommentActivity : AppCompatActivity() {
     }
 
 
-
     private fun getBundle(){
         post = intent.getSerializableExtra("post") as Post
     }
@@ -39,10 +38,9 @@ class CommentActivity : AppCompatActivity() {
         }
     }
 
-
     private fun setRecyclerView(){
         val layout = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        adapterComment = AdapterComment(post.comments)
+        adapterComment = post.comments?.let { AdapterComment(it) }!!
         binding.recyclerViewComments.apply {
             layoutManager = layout
             adapter = adapterComment
