@@ -5,48 +5,66 @@ import com.example.feed_use.data.Comment
 import com.example.feed_use.data.Post
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.channelFlow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.launch
 
 class RepositoryPostImp : RepositoryPost {
 
     private val db = Firebase.firestore
     private val pathPost = "posts"
 
-    override fun getAllPosts(): MutableList<Post> {
-
+    override suspend fun getAllPosts(): Flow<MutableList<Post>> {
         val postList = ArrayList<Post>()
+        //TODO VERIFICAR CHANNEL FLOW
+        return channelFlow {
+            db.collection(pathPost)
+            db.collection(pathPost).get()
+                .addOnSuccessListener { postsFromFirebase ->
+                    for (postFire in postsFromFirebase) {
 
-        db.collection(pathPost).get().addOnSuccessListener { postsFromFirebase ->
-            for (postFire in postsFromFirebase) {
-                postFire.data
-                val commentList = ArrayList<Comment>()
-                if (postFire.data["comments"] != null) {
-                    val commentsFirebase = postFire.data["comments"] as MutableList<*>
-                    for (comment in commentsFirebase) {
-                        val commentLocal = Comment(
-                            (comment as HashMap<*, *>)["idUser"].toString(),
-                            (comment as HashMap<*, *>)["imageUser"].toString(),
-                            (comment as HashMap<*, *>)["nameUser"].toString(),
-                            (comment as HashMap<*, *>)["comment"].toString(),
-                            (comment as HashMap<*, *>)["dateCommet"].toString()
+                        val commentList = ArrayList<Comment>()
+                        if (postFire.data["comments"] != null) {
+                            val commentsFirebase = postFire.data["comments"] as MutableList<*>
+                            for (comment in commentsFirebase) {
+                                val commentLocal = Comment(
+                                    (comment as HashMap<*, *>)["idUser"].toString(),
+                                    (comment as HashMap<*, *>)["imageUser"].toString(),
+                                    (comment as HashMap<*, *>)["nameUser"].toString(),
+                                    (comment as HashMap<*, *>)["comment"].toString(),
+                                    (comment as HashMap<*, *>)["dateCommet"].toString()
+                                )
+                                commentList.add(commentLocal)
+                            }
+                        }
+
+                        val post = Post(
+                            postFire.data["idPost"].toString(),
+                            postFire.data["imageProfile"].toString(),
+                            postFire.data["post"].toString(),
+                            postFire.data["datePost"].toString(),
+                            postFire.data["nameProfilePost"].toString(),
+                            postFire.data["numberLikes"].toString().toInt(),
+                            postFire.data["numberComments"].toString().toInt(),
+                            commentList,
                         )
-                        commentList.add(commentLocal)
+                        post.idPost
+                        postList.add(post)
                     }
+                    //TODO VERIFICAR LAUNCH
+                    launch {
+                        send(postList)
+                    }
+                    Log.d("RepositoryIMP", "Posts foram recuperados")
+                }.addOnFailureListener {
+                    Log.d("RepositoryIMP", "Posts não foram recuperados")
                 }
-
-                val post = Post(
-                    postFire.data["idPost"].toString(),
-                    postFire.data["imageProfile"].toString(),
-                    postFire.data["post"].toString(),
-                    postFire.data["datePost"].toString(),
-                    postFire.data["nameProfilePost"].toString(),
-                    postFire.data["numberLikes"].toString().toInt(),
-                    postFire.data["numberComments"].toString().toInt(),
-                    commentList,
-                )
-                postList.add(post)
-            }
+            awaitClose()
+            //TODO VERIFICAR AWAITCLOSE
         }
-        return postList
+
     }
 
     override fun insertPost(post: Post) {
@@ -65,7 +83,7 @@ class RepositoryPostImp : RepositoryPost {
             "numberLikes", post.numberLikes
         ).addOnSuccessListener {
             Log.d("RepositoryIMP", "Post editado com sucesso")
-        }.addOnFailureListener{
+        }.addOnFailureListener {
             it.toString()
             Log.d("RepositoryIMP", "Post não foi editao")
         }

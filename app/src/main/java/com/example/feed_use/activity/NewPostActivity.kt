@@ -47,28 +47,26 @@ class NewPostActivity : AppCompatActivity() {
 
 
     private fun setButton() {
-
         binding.apply {
-            editTextPost.addTextChangedListener {object : TextWatcher {
+            editTextPost.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                    TODO("Not yet implemented")
+
                 }
 
                 override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                    val post:String = editTextPost.text.toString().trim()
+                    val post: String = p0.toString().trim()
                     buttonPost.isEnabled = post.isNotEmpty()
                 }
 
                 override fun afterTextChanged(p0: Editable?) {
-                    TODO("Not yet implemented")
+
                 }
-
             }
+            )
 
-            }
             buttonPost.setOnClickListener {
                 val post = Post(
-                    generateIdPost()+UserDataProvider.user.nameProfile,
+                    generateIdPost() + UserDataProvider.user.nameProfile,
                     UserDataProvider.user.imageProfile,
                     binding.editTextPost.text.toString(),
                     "",
@@ -78,14 +76,15 @@ class NewPostActivity : AppCompatActivity() {
                     null
                 )
                 newPostActivityViewModel.insertPost(post)
+                finish()
             }
         }
     }
 
-    private fun generateIdPost():String{
+    private fun generateIdPost(): String {
         return Calendar.getInstance().time.toString()
-            .replace(" ","")
-            .replace(":","")
-            .replace("+","")
+            .replace(" ", "")
+            .replace(":", "")
+            .replace("+", "")
     }
 }

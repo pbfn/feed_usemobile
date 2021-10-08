@@ -4,7 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.feed_use.R
@@ -14,6 +16,7 @@ import com.example.feed_use.dataprovider.DataProviderComment
 import com.example.feed_use.fragments.FeedFragment
 import com.example.feed_use.fragments.PerfilFragment
 import com.example.feed_use.repository.RepositoryPostImp
+import com.example.feed_use.viewModel.MainActivityViewModel
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -21,16 +24,14 @@ import com.google.firebase.ktx.Firebase
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-
-    private fun initDB() {
-
-    }
+    private lateinit var mainActivityViewModel: MainActivityViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        initDB()
+        //setupViewModel()
+        //oberveData()
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.frame_contaier) as NavHostFragment
@@ -39,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.setupWithNavController(navController)
 
         binding.buttonBack.visibility = View.GONE
+
         replaceFragment(FeedFragment())
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
@@ -49,6 +51,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_post -> {
                     val intent = Intent(this, NewPostActivity::class.java)
                     startActivity(intent)
+                    onStop()
                 }
                 R.id.nav_perfil -> {
                     binding.buttonBack.visibility = View.GONE
@@ -68,6 +71,16 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().replace(R.id.frame_contaier, fragment)
             .addToBackStack("Fragment").commit()
         //supportFragmentManager.beginTransaction().replace(R.id.frame_contaier, fragment).commit()
+    }
+
+    private fun setupViewModel() {
+        mainActivityViewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
+    }
+
+    private fun oberveData(){
+        mainActivityViewModel.posts.observe(this, { posts ->
+            Toast.makeText(this,"posts carregados",Toast.LENGTH_LONG).show()
+        })
     }
 
 }

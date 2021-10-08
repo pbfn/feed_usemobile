@@ -11,7 +11,7 @@ import com.example.feed_use.databinding.ItemAdapterPostBinding
 import com.squareup.picasso.Picasso
 
 
-class AdapterPost(private val posts: MutableList<Post>, var context: Context) :
+class AdapterPost(private val posts: List<Post>, var context: Context) :
     RecyclerView.Adapter<AdapterPost.ViewHolder>() {
 
     class ViewHolder(view: ItemAdapterPostBinding) : RecyclerView.ViewHolder(view.root) {
