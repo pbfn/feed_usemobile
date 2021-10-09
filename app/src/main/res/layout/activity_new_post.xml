@@ -18,38 +18,41 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="24dp"
+        style="@style/text_view_name_new_post"
         android:id="@+id/text_view_name_user"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
         android:text="@string/name_post"
         app:layout_constraintBottom_toBottomOf="@+id/image_view_profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/image_view_profile"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:hint="Adicione o texto da sua postagem"
-        android:id="@+id/edit_text_post"
+    <View
+        android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="7dp"
+        android:background="@color/separator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_view_profile" />
+
+    <EditText
+        style="@style/edit_text_new_post"
+        android:id="@+id/edit_text_post"
         android:layout_marginHorizontal="25dp"
+        android:hint="@string/adicione_o_texto_da_sua_postagem"
         app:layout_constraintBottom_toTopOf="@+id/button_post"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        app:layout_constraintTop_toBottomOf="@+id/image_view_profile" />
+        app:layout_constraintTop_toBottomOf="@+id/view" />
 
     <Button
         android:id="@+id/button_post"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Publicar"
+        android:text="@string/publicar"
         android:enabled="false"
+        android:textColor="@drawable/select_text_color_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

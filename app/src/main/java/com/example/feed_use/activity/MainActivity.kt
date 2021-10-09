@@ -10,15 +10,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.feed_use.R
-import com.example.feed_use.data.Post
+
 import com.example.feed_use.databinding.ActivityMainBinding
-import com.example.feed_use.dataprovider.DataProviderComment
 import com.example.feed_use.fragments.FeedFragment
 import com.example.feed_use.fragments.PerfilFragment
-import com.example.feed_use.repository.RepositoryPostImp
 import com.example.feed_use.viewModel.MainActivityViewModel
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -39,13 +36,13 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNavigationView.setupWithNavController(navController)
 
-        binding.buttonBack.visibility = View.GONE
+    //    binding.buttonBack.visibility = View.GONE
 
         replaceFragment(FeedFragment())
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_feed -> {
-                    binding.buttonBack.visibility = View.GONE
+                  //  binding.buttonBack.visibility = View.GONE
                     replaceFragment(FeedFragment())
                 }
                 R.id.nav_post -> {
@@ -54,7 +51,7 @@ class MainActivity : AppCompatActivity() {
                     onStop()
                 }
                 R.id.nav_perfil -> {
-                    binding.buttonBack.visibility = View.GONE
+                   // binding.buttonBack.visibility = View.GONE
                     replaceFragment(PerfilFragment())
                 }
             }

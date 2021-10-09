@@ -16,7 +16,9 @@ import com.example.feed_use.R
 import com.example.feed_use.activity.NewPostActivity
 import com.example.feed_use.adapters.AdapterPost
 import com.example.feed_use.databinding.FragmentFeedBinding
+import com.example.feed_use.dataprovider.DataProviderUser
 import com.example.feed_use.viewModel.FeedFragmentViewModel
+import com.squareup.picasso.Picasso
 
 
 class FeedFragment : Fragment() {
@@ -73,10 +75,13 @@ class FeedFragment : Fragment() {
     }
 
     private fun setView() {
-        binding.editTextNewPost.setOnClickListener {
-            val intent = Intent(context, NewPostActivity::class.java)
-            startActivity(intent)
+        binding.apply {
+            editTextNewPost.setOnClickListener {
+                startActivity(Intent(context, NewPostActivity::class.java))
+            }
+            Picasso.get().load(DataProviderUser.user.imageProfile).into(imageViewProfile)
         }
+
     }
 
 }

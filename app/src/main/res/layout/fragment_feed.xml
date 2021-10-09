@@ -19,10 +19,13 @@
     <EditText
         android:clickable="true"
         android:focusable="false"
+        android:background="@android:color/transparent"
+        android:hint="@string/adicione_uma_postagem"
         android:id="@+id/edit_text_new_post"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="24dp"
+        android:layout_marginStart="12dp"
         app:layout_constraintBottom_toBottomOf="@+id/image_view_profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/image_view_profile"
@@ -40,7 +43,6 @@
         app:layout_constraintTop_toBottomOf="@+id/edit_text_new_post" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="14dp"
         android:id="@+id/recycler_view_posts"
         android:layout_width="match_parent"
         android:layout_height="0dp"

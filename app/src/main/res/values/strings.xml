@@ -8,4 +8,9 @@
     <string name="date_post">Quinta-feira às 09:32</string>
     <string name="qtd_aux">19999</string>
     <string name="hint_escreva_comentario">Escreva um comentário</string>
+    <string name="adicione_o_texto_da_sua_postagem">Adicione o texto da sua postagem</string>
+    <string name="publicar">Publicar</string>
+    <string name="adicione_uma_postagem">Adicione uma postagem</string>
+    <string name="criar_postagem">Criar postagem</string>
+    <string name="postagem">Postagem</string>
 </resources>
