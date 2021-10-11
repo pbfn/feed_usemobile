@@ -5,8 +5,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface RepositoryPost {
 
-    //fun getAllPosts():MutableList<Post>
-
     suspend fun getAllPosts(): Flow<MutableList<Post>>
 
     fun insertPost(post: Post)

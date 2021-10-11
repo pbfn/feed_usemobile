@@ -97,7 +97,7 @@ class CommentActivity : AppCompatActivity() {
     }
 
     private fun saveComment(comment: String) {
-        //TODO VERIFICAR SE A STRING ESTA VAZIA, SE ESTIVER VAZIA DEIXAR O NEGOCIO DE COMENTARIO VERMELHO E DAR UM AVISO COM O TOAST
+
         if (comment.isEmpty()) {
             Toast.makeText(this, "Digite um comentário por favor", Toast.LENGTH_SHORT).show()
         } else {

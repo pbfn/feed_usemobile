@@ -40,7 +40,7 @@ class FeedFragment : Fragment() {
         setupViewModel()
         observeData()
         getPosts()
-        setView()
+        setupView()
     }
 
     private fun setRecyclerView(posts: MutableList<Post>) {
@@ -74,7 +74,7 @@ class FeedFragment : Fragment() {
         feedFragmentViewModel.getPosts()
     }
 
-    private fun setView() {
+    private fun setupView() {
         binding.apply {
             editTextNewPost.setOnClickListener {
                 startActivity(Intent(context, NewPostActivity::class.java))

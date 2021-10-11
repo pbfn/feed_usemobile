@@ -9,7 +9,7 @@ data class Post(
     val datePost:String,
     val nameProfilePost:String,
     val numberLikes:Int,
-    val numberComments:Int,
+    var numberComments:Int,
     val comments: MutableList<Comment>?
 ):Serializable
 

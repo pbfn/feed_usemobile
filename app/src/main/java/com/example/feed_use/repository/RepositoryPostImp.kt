@@ -20,7 +20,6 @@ class RepositoryPostImp : RepositoryPost {
         val postList = ArrayList<Post>()
         //TODO VERIFICAR CHANNEL FLOW
         return channelFlow {
-            db.collection(pathPost)
             db.collection(pathPost).get()
                 .addOnSuccessListener { postsFromFirebase ->
                     for (postFire in postsFromFirebase) {
@@ -50,7 +49,6 @@ class RepositoryPostImp : RepositoryPost {
                             postFire.data["numberComments"].toString().toInt(),
                             commentList,
                         )
-                        post.idPost
                         postList.add(post)
                     }
                     //TODO VERIFICAR LAUNCH
@@ -78,7 +76,7 @@ class RepositoryPostImp : RepositoryPost {
 
     override fun editPost(post: Post) {
         db.collection("posts").document(post.idPost).update(
-            "numberComments", post.numberComments,
+            "numberComments", post.numberComments+1,
             "comments", post.comments,
             "numberLikes", post.numberLikes
         ).addOnSuccessListener {

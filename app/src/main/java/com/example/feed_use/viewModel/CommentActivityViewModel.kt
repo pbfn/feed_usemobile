@@ -47,15 +47,6 @@ class CommentActivityViewModel:ViewModel() {
 
         val dateTimeFormat = SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.getDefault())
         return dateTimeFormat.format(date)
-//        tvDateTime.text = dateTimeFormat.format(date)
-//
-//        dateTimeFormat = SimpleDateFormat("EEE, d MMM yyyy", Locale.getDefault())
-//        tvDate.text = dateTimeFormat.format(date)
-//
-//        dateTimeFormat = SimpleDateFormat("K:mm a", Locale.getDefault())
-//        tvTime.text = dateTimeFormat.format(date)
-//
-//        tvFullDateTime.text = date.toString()
     }
 
 

@@ -51,8 +51,8 @@ class AdapterPost(private val posts: List<Post>, var context: Context) :
             imageViewLike.setOnClickListener{
 
             }
-            textViewQtdComments.text = posts[position].numberLikes.toString()
-            textViewQtdLikes.text = posts[position].numberComments.toString()
+            textViewQtdComments.text = posts[position].numberComments.toString()
+            textViewQtdLikes.text = posts[position].numberLikes.toString()
         }
     }
 
