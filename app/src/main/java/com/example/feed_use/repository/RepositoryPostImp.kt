@@ -78,7 +78,17 @@ class RepositoryPostImp : RepositoryPost {
         db.collection("posts").document(post.idPost).update(
             "numberComments", post.numberComments+1,
             "comments", post.comments,
-            "numberLikes", post.numberLikes
+        ).addOnSuccessListener {
+            Log.d("RepositoryIMP", "Post editado com sucesso")
+        }.addOnFailureListener {
+            it.toString()
+            Log.d("RepositoryIMP", "Post não foi editao")
+        }
+    }
+
+    override fun editPostLike(post: Post) {
+        db.collection("posts").document(post.idPost).update(
+            "numberLikes", post.numberLikes+1,
         ).addOnSuccessListener {
             Log.d("RepositoryIMP", "Post editado com sucesso")
         }.addOnFailureListener {

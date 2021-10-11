@@ -17,12 +17,8 @@ class RepositoryUserImp : RepositoryUser {
     private val pathUser = "users"
 
 
-    override fun editUser(user: User) {
-        TODO("Not yet implemented")
-    }
-
     override suspend fun getUser(): Flow<User> {
-        var user: User = User("1","Carregando","...",0)
+        var user: User = User("1", "Carregando", "...", 0)
         return channelFlow {
             db.collection(pathUser).get()
                 .addOnSuccessListener { userFromFireBase ->
@@ -45,6 +41,14 @@ class RepositoryUserImp : RepositoryUser {
         }
 
 
+    }
+
+    override fun insertNuberPost(user: User) {
+        db.collection(pathUser).document(user.idUser).update(
+            "qtdPosts", user.qtdPosts + 1
+        ).addOnFailureListener {
+            Log.d("RepositoryIMP", "post adicionado")
+        }
     }
 
     fun addUser(user: User) {

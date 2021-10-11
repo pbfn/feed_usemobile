@@ -29,4 +29,9 @@ class FeedFragmentViewModel : ViewModel() {
         }
     }
 
+
+    fun editNumberLike(post: Post) {
+        repository.editPostLike(post)
+    }
+
 }

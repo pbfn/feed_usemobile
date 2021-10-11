@@ -49,5 +49,9 @@ class CommentActivityViewModel:ViewModel() {
         return dateTimeFormat.format(date)
     }
 
+    fun editNumberLike(post: Post) {
+        repository.editPostLike(post)
+    }
+
 
 }

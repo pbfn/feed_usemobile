@@ -10,4 +10,6 @@ interface RepositoryPost {
     fun insertPost(post: Post)
 
     fun editPost(post: Post)
+
+    fun editPostLike(post: Post)
 }

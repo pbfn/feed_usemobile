@@ -13,4 +13,5 @@
     <string name="adicione_uma_postagem">Adicione uma postagem</string>
     <string name="criar_postagem">Criar postagem</string>
     <string name="postagem">Postagem</string>
+    <string name="posts">%s posts</string>
 </resources>

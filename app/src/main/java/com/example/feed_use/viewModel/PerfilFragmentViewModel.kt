@@ -12,7 +12,6 @@ import kotlinx.coroutines.launch
 
 class PerfilFragmentViewModel : ViewModel() {
 
-
     private var _user = MutableLiveData<User>()
     var user: LiveData<User> = _user
     private val repository = RepositoryUserImp()

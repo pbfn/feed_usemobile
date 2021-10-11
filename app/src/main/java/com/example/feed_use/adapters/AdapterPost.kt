@@ -11,7 +11,11 @@ import com.example.feed_use.databinding.ItemAdapterPostBinding
 import com.squareup.picasso.Picasso
 
 
-class AdapterPost(private val posts: List<Post>, var context: Context) :
+class AdapterPost(
+    private val posts: List<Post>,
+    var context: Context,
+    val editLike: (post: Post) -> Unit
+) :
     RecyclerView.Adapter<AdapterPost.ViewHolder>() {
 
     class ViewHolder(view: ItemAdapterPostBinding) : RecyclerView.ViewHolder(view.root) {
@@ -23,6 +27,7 @@ class AdapterPost(private val posts: List<Post>, var context: Context) :
         val textViewQtdComments = view.textViewQtdComments
         val imageViewComment = view.imageViewComment
         val imageViewLike = view.imageViewLike
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -42,21 +47,33 @@ class AdapterPost(private val posts: List<Post>, var context: Context) :
                 intent.putExtra("post", posts[position])
                 context.startActivity(intent)
             }
-           itemView.setOnClickListener {
+            itemView.setOnClickListener {
                 val intent = Intent(context, CommentActivity::class.java)
                 intent.putExtra("post", posts[position])
                 context.startActivity(intent)
             }
 
-            imageViewLike.setOnClickListener{
+            imageViewLike.setOnClickListener {
+
+                val check = imageViewLike.isChecked
+
+                if (check) {
+                    textViewQtdLikes.text = (posts[position].numberLikes + 1).toString()
+                    editLike(posts[position])
+                } else {
+                    textViewQtdLikes.text = (posts[position].numberLikes).toString()
+                }
+
 
             }
             textViewQtdComments.text = posts[position].numberComments.toString()
             textViewQtdLikes.text = posts[position].numberLikes.toString()
+
         }
     }
 
     override fun getItemCount(): Int {
         return posts.size
     }
+
 }

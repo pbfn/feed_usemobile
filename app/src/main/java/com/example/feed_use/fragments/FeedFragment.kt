@@ -46,8 +46,8 @@ class FeedFragment : Fragment() {
     private fun setRecyclerView(posts: MutableList<Post>) {
         val layout = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         layout.stackFromEnd = true
-        layout.reverseLayout =  true
-        adapterPost = AdapterPost(posts, requireContext())
+        layout.reverseLayout = true
+        adapterPost = AdapterPost(posts, requireContext(), ::editLike)
         binding.recyclerViewPosts.apply {
             layoutManager = layout
             adapter = adapterPost
@@ -56,6 +56,10 @@ class FeedFragment : Fragment() {
             addItemDecoration(itemDecoration)
         }
 
+    }
+
+    private fun editLike(post: Post) {
+        feedFragmentViewModel.editNumberLike(post)
     }
 
     private fun setupViewModel() {

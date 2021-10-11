@@ -53,7 +53,7 @@ class PerfilFragment : Fragment() {
         binding.apply {
             Picasso.get().load(user.imageProfile).into(imageViewPerfil)
             textViewNamePerfil.text = user.nameProfile
-            textViewQtdPosts.text = user.qtdPosts.toString()
+            textViewQtdPosts.text = String.format(getString(R.string.posts,user.qtdPosts.toString()))
         }
     }
 

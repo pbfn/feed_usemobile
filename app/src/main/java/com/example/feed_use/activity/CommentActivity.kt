@@ -64,6 +64,17 @@ class CommentActivity : AppCompatActivity() {
                 textViewQtdComments.text = post.numberComments.toString()
                 textViewQtdLikes.text = post.numberLikes.toString()
                 textViewNameProfile.text = post.nameProfilePost
+
+                imageViewLike.setOnClickListener {
+                    val check = imageViewLike.isChecked
+
+                    if (check) {
+                        textViewQtdLikes.text = (post.numberLikes + 1).toString()
+                        commentActivityViewModel.editNumberLike(post)
+                    } else {
+                        textViewQtdLikes.text = (post.numberLikes).toString()
+                    }
+                }
             }
 
             includeComment.imageViewSendCooment.setOnClickListener {
@@ -103,6 +114,7 @@ class CommentActivity : AppCompatActivity() {
         } else {
             commentActivityViewModel.insetComment(post, comment)
             binding.includeComment.editTextNewComment.text.clear()
+            binding.include.textViewQtdComments.text = (post.numberComments + 1).toString()
             closeKeyboard()
         }
     }
